@@ -72,9 +72,9 @@ class InstallData implements Setup\InstallDataInterface
     public function install(Setup\ModuleDataSetupInterface $setup, Setup\ModuleContextInterface $context)
     {
         // @codingStandardsIgnoreEnd
-        // if (!$this->_state->getAreaCode()) {
+         if (!$this->_state->getAreaCode()) {
             $this->_state->setAreaCode('frontend');
-        // }
+         }
 
         /** @var SalesSetup $eavSetup */
         $eavSetup = $this->_salesSetupFactory->create(['setup' => $setup]);
@@ -147,11 +147,14 @@ class InstallData implements Setup\InstallDataInterface
         $productFactory = $this->_objectManager->get('\Magento\Catalog\Model\ProductFactory');
         $productIds = $productFactory->create()->getCollection()->getAllIds();
         /** @var \Magento\Catalog\Model\Product\Action $action */
-        $this->_objectManager->get('\Magento\Catalog\Model\Product\Action')->updateAttributes(
-            $productIds,
-            $attrData,
-            $storeId
-        );
+
+        if ($productIds) {
+            $this->_objectManager->get('\Magento\Catalog\Model\Product\Action')->updateAttributes(
+                $productIds,
+                $attrData,
+                $storeId
+            );
+        }
 
     }
 
