@@ -72,9 +72,14 @@ class InstallData implements Setup\InstallDataInterface
     public function install(Setup\ModuleDataSetupInterface $setup, Setup\ModuleContextInterface $context)
     {
         // @codingStandardsIgnoreEnd
-         if (!$this->_state->getAreaCode()) {
-            $this->_state->setAreaCode('frontend');
-         }
+        try {    
+            if (!$this->_state->getAreaCode()) {
+                $this->_state->setAreaCode('frontend');
+            }
+        catch (\Exception $e) {
+
+        }
+
 
         /** @var SalesSetup $eavSetup */
         $eavSetup = $this->_salesSetupFactory->create(['setup' => $setup]);
