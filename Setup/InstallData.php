@@ -76,7 +76,7 @@ class InstallData implements Setup\InstallDataInterface
             if (!$this->_state->getAreaCode()) {
                 $this->_state->setAreaCode('frontend');
             }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
 
         }
 
