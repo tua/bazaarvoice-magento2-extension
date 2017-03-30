@@ -49,7 +49,8 @@ class Data extends AbstractHelper
     public function getBvApiHostUrl($isStatic, $store = null)
     {
         /** Build protocol based on current page */
-        $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != '') ? 'https' : 'http';
+        //$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != '') ? 'https' : 'http';
+        $protocol = $this->_request->isSecure() ? 'https' : 'http';
         /** Build hostname based on environment setting */
         $environment = $this->getConfig('general/environment', $store);
         if ($environment == 'staging') {
