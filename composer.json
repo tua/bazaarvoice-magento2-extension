@@ -1,5 +1,5 @@
 {
-  "name": "bazaarvoice/bazaarvoice-magento2-ext",
+  "name": "hpols/bazaarvoice-magento2-extension",
   "description": "Bazaarvoice Magento 2 Integration Extension",
   "type": "magento2-module",
   "license": [ "MIT" ],
@@ -9,7 +9,7 @@
       "email": "dennis@storefrontconsulting.com"
     }
   ],
-  "version": "7.0.5",
+  "version": "17.0.5",
   "autoload": {
     "files": [
       "registration.php"
